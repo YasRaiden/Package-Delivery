@@ -1,0 +1,137 @@
+# Trevian Johnson   ID #: 000927218
+from packages import import_package_list
+from map import import_distance_table
+from truck import Truck
+
+
+def main_menu(total_distance):
+    print('---------------------------------')
+    print('WGUPS PACKAGE DELIVERY')
+    print('---------------------------------')
+    print('Total Distance: ', total_distance)
+    user_select = input()
+
+
+if __name__ == '__main__':
+    graph, address_hash = import_distance_table('assets/WGUPSDistanceTable.csv')
+    package_hash, package_list = import_package_list('assets/WGUPSPackageFile.csv', address_hash)
+    hub_location = address_hash.search("4001 South 700 East")
+    package_hash.search(9).status = 2
+
+    truck1 = Truck('truck 1', package_hash)
+    truck2 = Truck('truck 2', package_hash)
+    truck1.set_time("8:00 am")
+    truck2.set_time("9:05 am")
+
+    truck1.add_package(20)
+    truck1.add_package(21)
+    truck1.add_package(14)
+    truck1.add_package(15)
+    truck1.add_package(16)
+    truck1.add_package(34)
+    truck1.add_package(19)
+    truck1.add_package(13)
+    truck1.add_package(39)
+    truck1.add_package(7)
+    truck1.add_package(29)
+    truck1.add_package(8)
+    truck1.add_package(30)
+    truck1.add_package(12)
+    truck1.add_package(10)
+    #truck1.deliver(hub_location, graph)
+
+    truck2.add_package(1)
+    truck2.add_package(4)
+    truck2.add_package(40)
+    truck2.add_package(28)
+    truck2.add_package(6)
+    truck2.add_package(25)
+    truck2.add_package(26)
+    truck2.add_package(31)
+    truck2.add_package(32)
+    truck2.add_package(5)
+    truck2.add_package(37)
+    truck2.add_package(38)
+    truck2.add_package(27)
+    truck2.add_package(35)
+    truck2.add_package(36)
+    truck2.add_package(9)
+    #truck2.deliver(hub_location, graph)
+
+
+    truck2.add_package(11)
+    truck2.add_package(17)
+    truck2.add_package(24)
+    truck2.add_package(23)
+    truck2.add_package(22)
+    truck2.add_package(2)
+    truck2.add_package(33)
+    truck2.add_package(18)
+    truck2.add_package(3)
+    #truck2.deliver(hub_location, graph)
+
+    total_distance = truck1.get_distance() + truck2.get_distance()
+
+    main_menu(total_distance)
+    #package_hash.full_report("11:00 AM")
+
+
+
+    """
+    package_set_1 = []
+    package_set_1.append(package_hash.search('20'))
+    package_set_1.append(package_hash.search('21'))
+    package_set_1.append(package_hash.search('12'))
+    package_set_1.append(package_hash.search('15'))
+    package_set_1.append(package_hash.search('16'))
+    package_set_1.append(package_hash.search('34'))
+    package_set_1.append(package_hash.search('19'))
+    package_set_1.append(package_hash.search('13'))
+    package_set_1.append(package_hash.search('39'))
+    package_set_1.append(package_hash.search('7'))
+    package_set_1.append(package_hash.search('29'))
+    package_set_1.append(package_hash.search('8'))
+    package_set_1.append(package_hash.search('30'))
+    package_set_1.append(package_hash.search('12'))
+    package_set_1.append(package_hash.search('10'))
+    #optimized1 = brute_force_ten(package_set_1, hub_location, graph)
+    #print("#1 Optimized: ", optimized1[1])
+    #get_distance(optimized1[0], hub_location, "8:00 am", graph)
+
+    package_set_2 = []
+    package_set_2.append(package_hash.search('1'))
+    package_set_2.append(package_hash.search('4'))
+    package_set_2.append(package_hash.search('40'))
+    package_set_2.append(package_hash.search('28'))
+    package_set_2.append(package_hash.search('6'))
+    package_set_2.append(package_hash.search('25'))
+    package_set_2.append(package_hash.search('26'))
+    package_set_2.append(package_hash.search('31'))
+    package_set_2.append(package_hash.search('32'))
+    package_set_2.append(package_hash.search('5'))
+    package_set_2.append(package_hash.search('37'))
+    package_set_2.append(package_hash.search('38'))
+    package_set_2.append(package_hash.search('27'))
+    package_set_2.append(package_hash.search('35'))
+    package_set_2.append(package_hash.search('36'))
+    package_set_2.append(package_hash.search('9'))
+    #optimized2 = brute_force_ten(package_set_2, hub_location, graph)
+    #print("#2 Optimized: ", optimized2[1])
+    #get_distance(optimized2[0], hub_location, "9:05 am", graph)
+
+
+
+    package_set_3 = []
+    package_set_3.append(package_hash.search('11'))
+    package_set_3.append(package_hash.search('17'))
+    package_set_3.append(package_hash.search('24'))
+    package_set_3.append(package_hash.search('23'))
+    package_set_3.append(package_hash.search('22'))
+    package_set_3.append(package_hash.search('2'))
+    package_set_3.append(package_hash.search('33'))
+    package_set_3.append(package_hash.search('18'))
+    package_set_2.append(package_hash.search('3'))
+    #optimized3 = brute_force_ten(package_set_3, hub_location, graph)
+    #print("#3 Optimized: ", optimized3[1])
+    #get_distance(optimized3[0], hub_location, "10:30 am", graph)
+    """
